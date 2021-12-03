@@ -1,17 +1,15 @@
 <template>
   <div>
-    Hello
-    <Jia/>
+    导航栏
+    <router-link to="/">Frank</router-link> |
+    <router-link to="/xxx">Frank2</router-link>
   </div>
+  <router-view />
 </template>
 
 <script>
-import Jia from './components/Starts.vue'
 
 export default {
   name: 'App',
-  components: {
-    Jia
-  }
 }
 </script>
