@@ -28,6 +28,7 @@ export default {
   padding: 16px;
   position: relative;
   z-index: 10;
+  align-items: center;
   > .logo{
     max-width: 6em;
     margin-right: auto;
@@ -38,6 +39,14 @@ export default {
     flex-wrap: nowrap;
     > li {
       margin: 0 1em;
+    }
+  }
+  @media (max-width:500px){
+    > .logo{
+      margin: 0 auto;
+    }
+    > .menu{
+      display: none;
     }
   }
 }
