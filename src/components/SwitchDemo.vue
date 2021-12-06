@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Switch :value="switchState" @input="switchState = $event" />
+    <Switch v-model:value="switchState" />
   </div>
 </template>
 <script lang="ts">
@@ -14,4 +14,3 @@ export default {
   },
 };
 </script>
-b
