@@ -12,11 +12,8 @@
     </div>
     <div class="gulu-tabs-content">
       <component
-        class="gulu-tabs-content-item"
-        :class="{ selected: c.props.title === selected }"
-        v-for="(c, index) in defaults"
-        :is="c"
-        :key="index"
+        :is="current"
+        :key="current.props.title"
       />
     </div>
   </div>
@@ -50,13 +47,16 @@ export default {
         throw new Error("Tabs 子标签必须是 Tab");
       }
     });
+    const current = computed(() => {
+      return defaults.find(tag => tag.props.title === props.selected)
+    })
     const titles = defaults.map((tag) => {
       return tag.props.title;
     });
     const select = (title: string) => {
       context.emit("update:selected", title);
     };
-    return { defaults, titles, select, selectedItem, indicator, container };
+    return { defaults, titles, current,select, selectedItem, indicator, container };
   },
 };
 </script>
@@ -93,12 +93,6 @@ $border-color: #d9d9d9;
   }
   &-content {
     padding: 8px 0;
-    &-item {
-      display: none;
-      &.selected {
-        display: block;
-      }
-    }
   }
 }
 </style>
