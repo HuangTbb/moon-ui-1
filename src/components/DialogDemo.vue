@@ -1,23 +1,21 @@
 <template>
-  <div>
-    <h1>示例1</h1>
-    <Button @click="toggle">toggle</Button>
-    <Dialog
-      v-model:visible="x"
-      :closeOnClickOverlay="false"
-      :ok="f1"
-      :cancel="f2">
-      <template v-slot:content>
-        <div>hi</div>
-        <div>你好</div>
-      </template>
-      <template v-slot:title>
-        <strong>加粗的title<strong>
-      </template>
-    </Dialog>
-    <h1>示例2</h1>
-    <Button @click="showDialog">show</Button>
-  </div>
+  <h1>示例1</h1>
+  <Button @click="toggle">toggle</Button>
+  <Dialog
+    v-model:visible="x"
+    :closeOnClickOverlay="false"
+    :ok="f1"
+    :cancel="f2">
+    <template v-slot:content>
+      <div>hi</div>
+      <div>你好</div>
+    </template>
+    <template v-slot:title>
+      <strong>加粗的title<strong>
+    </template>
+  </Dialog>
+  <h1>示例2</h1>
+  <Button @click="showDialog">show</Button>
 </template>
 <script lang="ts">
 import Dialog from "../lib/Dialog.vue";
