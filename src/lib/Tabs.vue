@@ -2,7 +2,7 @@
   <div class="gulu-tabs">
     <div class="gulu-tabs-nav" ref="container">
       <div class="gulu-tabs-nav-item" v-for="(t, index) in titles"
-        :ref="(el) => {if (t === selected) selectedItem = el}"
+        :ref="el => {if (t === selected) selectedItem = el}"
         :class="{ selected: t === selected }"
         @click="select(t)"
         :key="index">
@@ -23,7 +23,7 @@
 </template>
 <script lang="ts">
 import Tab from "./Tab.vue";
-import {computed, ref, onMounted, onUpdated} from 'vue';
+import {computed, onMounted, ref, watchEffect} from 'vue';
 export default {
   props: {
     selected: {
@@ -31,29 +31,24 @@ export default {
     },
   },
   setup(props, context) {
-    const selectedItem = ref<HTMLDivElement>(null);
+    const selectedItem = ref < HTMLDivElement > (null)
     const indicator = ref<HTMLDivElement>(null);
     const container = ref<HTMLDivElement>(null)
-    const changeIndicatorStyle=()=>{
-      const { width } = selectedItem.value.getBoundingClientRect();
-      const { left: left1 } = selectedItem.value.getBoundingClientRect();
-      const { left: left2 } = container.value.getBoundingClientRect();
-      const left = left1-left2
-      indicator.value.style.width = width + "px";
-      indicator.value.style.left = left + "px";
-    }
-    onMounted(changeIndicatorStyle);
-    onUpdated(changeIndicatorStyle)
+    onMounted(()=>{
+      watchEffect(()=>{
+        const { width } = selectedItem.value.getBoundingClientRect();
+        const { left: left1 } = selectedItem.value.getBoundingClientRect();
+        const { left: left2 } = container.value.getBoundingClientRect();
+        const left = left1-left2
+        indicator.value.style.width = width + "px";
+        indicator.value.style.left = left + "px";
+      });
+    })
     const defaults = context.slots.default();
     defaults.forEach((tab) => {
       if (tab.type !== Tab) {
         throw new Error("Tabs 子标签必须是 Tab");
       }
-    });
-    const current = computed(() => {
-      return defaults.filter((tag) => {
-        return tag.props.title === props.selected;
-      })[0];
     });
     const titles = defaults.map((tag) => {
       return tag.props.title;
@@ -61,7 +56,7 @@ export default {
     const select = (title: string) => {
       context.emit("update:selected", title);
     };
-    return { defaults, titles, current, select, selectedItem, indicator, container };
+    return { defaults, titles, select, selectedItem, indicator, container };
   },
 };
 </script>
