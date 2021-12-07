@@ -5,8 +5,15 @@
       v-model:visible="x"
       :closeOnClickOverlay="false"
       :ok="f1"
-      :cancel="f2"
-    ></Dialog>
+      :cancel="f2">
+      <template v-slot:content>
+        <div>hi</div>
+        <div>你好</div>
+      </template>
+      <template v-slot:title>
+        <strong>加粗的title<strong>
+      </template>
+    </Dialog>
   </div>
 </template>
 <script lang="ts">
