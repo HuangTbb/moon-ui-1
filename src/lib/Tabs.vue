@@ -1,15 +1,14 @@
 <template>
   <div class="gulu-tabs">
-    <div class="gulu-tabs-nav">
-      <div
-        class="gulu-tabs-nav-item"
+    <div class="gulu-tabs-nav" ref="container">
+      <div class="gulu-tabs-nav-item" v-for="(t, index) in titles"
+        :ref="(el) => {if (el) navItems[index] = el;}"
         :class="{ selected: t === selected }"
         @click="select(t)"
-        v-for="(t, index) in titles"
-        :key="index"
-      >
+        :key="index">
         {{ t }}
       </div>
+      <div class="gulu-tabs-nav-indicator" ref="indicator"></div>
     </div>
     <div class="gulu-tabs-content">
       <component
@@ -24,7 +23,7 @@
 </template>
 <script lang="ts">
 import Tab from "./Tab.vue";
-import { computed } from "vue";
+import {computed, ref, onMounted, onUpdated} from 'vue';
 export default {
   props: {
     selected: {
@@ -32,6 +31,23 @@ export default {
     },
   },
   setup(props, context) {
+    const navItems = ref<HTMLDivElement[]>([]);
+    const indicator = ref<HTMLDivElement>(null);
+    const container = ref<HTMLDivElement>(null)
+    const changeIndicatorStyle=()=>{
+      const divs = navItems.value;
+      const result = divs.filter((div) =>
+          div.classList.contains("selected")
+      )[0];
+      const { width } = result.getBoundingClientRect();
+      const { left: left1 } = result.getBoundingClientRect();
+      const { left: left2 } = container.value.getBoundingClientRect();
+      const left = left1-left2
+      indicator.value.style.width = width + "px";
+      indicator.value.style.left = left + "px";
+    }
+    onMounted(changeIndicatorStyle);
+    onUpdated(changeIndicatorStyle)
     const defaults = context.slots.default();
     defaults.forEach((tab) => {
       if (tab.type !== Tab) {
@@ -49,7 +65,7 @@ export default {
     const select = (title: string) => {
       context.emit("update:selected", title);
     };
-    return { defaults, titles, current, select };
+    return { defaults, titles, current, select, navItems, indicator, container };
   },
 };
 </script>
@@ -62,6 +78,16 @@ $border-color: #d9d9d9;
     display: flex;
     color: $color;
     border-bottom: 1px solid $border-color;
+    position: relative;
+    &-indicator {
+      position: absolute;
+      height: 3px;
+      background: $blue;
+      left: 0;
+      bottom: -1px;
+      width: 100px;
+      transition: all 250ms;
+    }
     &-item {
       padding: 8px 0;
       margin: 0 16px;
