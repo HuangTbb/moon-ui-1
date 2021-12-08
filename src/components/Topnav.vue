@@ -1,6 +1,10 @@
 <template>
   <div class="topnav">
-    <div class="logo">LOGO</div>
+    <div class="logo">
+      <svg class="icon" aria-hidden="true">
+      <use xlink:href="#icon-xingxing1"></use>
+    </svg>
+    </div>
     <span class="toggleAside" @click="toggleMenu"></span>
     <ul class="menu">
       <li>菜单1</li>
@@ -21,7 +25,9 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+$color: #0f9c95;
 .topnav {
+  color: $color;
   display: flex;
   padding: 16px;
   position: fixed;
@@ -34,6 +40,10 @@ export default {
   > .logo {
     max-width: 6em;
     margin-right: auto;
+    > .icon{
+      width: 1.6em;
+      height: 1.6em;
+    }
   }
   > .menu {
     display: flex;
