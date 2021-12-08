@@ -1,11 +1,15 @@
 <template>
   <div class="topnav">
     <div class="logo">
-      <svg class="icon" aria-hidden="true">
-      <use xlink:href="#icon-xingxing1"></use>
-    </svg>
+      <svg class="icon">
+        <use xlink:href="#icon-xingxing1"></use>
+      </svg>
     </div>
-    <span class="toggleAside" @click="toggleMenu"  v-if="toggleMenuVisible"></span>
+    <svg class="toggleAside" @click="toggleMenu"  v-if="toggleMenuVisible">
+
+          <use xlink:href="#icon-menu"></use>
+
+    </svg>
     <ul class="menu">
       <li>
         <router-link to="/doc">文档</router-link>
@@ -61,9 +65,8 @@ $color: #0f9c95;
     }
   }
   > .toggleAside {
-    width: 24px;
-    height: 24px;
-    background: red;
+    width: 28px;
+    height: 28px;
     position: absolute;
     left: 16px;
     top: 50%;
