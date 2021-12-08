@@ -62,42 +62,46 @@ export default {
     flex-grow: 1;
     padding-top: 60px;
     padding-left: 156px;
+    display: flex;
+    > aside {
+      flex-shrink: 0;
+      background: lightblue;
+      width: 150px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      padding-top: 70px;
+      height: 100%;
+      z-index: 1;
+      > h2 {
+        margin-bottom: 4px;
+        padding-left: 16px;
+      }
+      > ol {
+        margin-bottom: 6px;
+        > li {
+          > a{
+            padding: 4px 16px;
+            display: block;
+            &:hover{
+              text-decoration: none;
+            }
+          }
+          > .router-link-active{
+            background: white;
+          }
+        }
+      }
+    }
+    > main {
+      flex-grow: 1;
+      padding: 16px;
+      background: white;
+      overflow: auto;
+    }
     @media (max-width: 500px) {
       padding-left: 0;
     }
   }
-}
-.content {
-  display: flex;
-  > aside {
-    flex-shrink: 0;
-  }
-  > main {
-    flex-grow: 1;
-    padding: 16px;
-    background: white;
-  }
-}
-aside {
-  background: lightblue;
-  width: 150px;
-  padding: 16px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  padding-top: 70px;
-  height: 100%;
-  z-index: 1;
-  > h2 {
-    margin-bottom: 4px;
-  }
-  > ol {
-    > li {
-      padding: 4px 0;
-    }
-  }
-}
-main {
-  overflow: auto;
 }
 </style>
