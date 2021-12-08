@@ -5,7 +5,7 @@
       <use xlink:href="#icon-xingxing1"></use>
     </svg>
     </div>
-    <span class="toggleAside" @click="toggleMenu"></span>
+    <span class="toggleAside" @click="toggleMenu"  v-if="toggleMenuVisible"></span>
     <ul class="menu">
       <li>
         <router-link to="/doc">文档</router-link>
@@ -16,6 +16,12 @@
 <script lang="ts">
 import { inject, Ref } from "vue";
 export default {
+  props:{
+    toggleMenuVisible: {
+      type: Boolean,
+      default: false
+    }
+  },
   setup() {
     const menuVisible = inject<Ref<boolean>>("menuVisible");
     const toggleMenu = () => {
