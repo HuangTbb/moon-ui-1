@@ -1,10 +1,10 @@
 <template>
   <div class="topnav">
-    <div class="logo">
+    <router-link to="/" class="logo">
       <svg class="icon">
         <use xlink:href="#icon-xingxing1"></use>
       </svg>
-    </div>
+    </router-link>
     <svg class="toggleAside" @click="toggleMenu"  v-if="toggleMenuVisible">
 
           <use xlink:href="#icon-menu"></use>
