@@ -6,22 +6,22 @@
       </svg>
     </router-link>
     <svg class="toggleAside" @click="toggleMenu"  v-if="toggleMenuVisible">
-
-          <use xlink:href="#icon-menu"></use>
-
+      <use xlink:href="#icon-menu"></use>
     </svg>
-    <ul class="menu">
-      <li>
-        <router-link to="/doc">文档</router-link>
-      </li>
-    </ul>
+    <div class="menu" v-if="menuLogoVisible">
+      <router-link to="/doc/intro">文档</router-link>
+    </div>
   </div>
 </template>
 <script lang="ts">
-import { inject, Ref } from "vue";
+import {inject, Ref} from 'vue';
 export default {
   props:{
     toggleMenuVisible: {
+      type: Boolean,
+      default: false
+    },
+    menuLogoVisible: {
       type: Boolean,
       default: false
     }
@@ -32,7 +32,7 @@ export default {
       menuVisible.value = !menuVisible.value;
     };
     return { toggleMenu };
-  },
+  }
 };
 </script>
 <style lang="scss" scoped>
@@ -60,9 +60,7 @@ $color: #0f9c95;
     display: flex;
     white-space: nowrap;
     flex-wrap: nowrap;
-    > li {
-      margin: 0 1em;
-    }
+    margin: 0 1em;
   }
   > .toggleAside {
     width: 28px;
@@ -74,6 +72,7 @@ $color: #0f9c95;
     display: none;
   }
   @media (max-width: 500px) {
+    background: #fff;
     > .logo {
       margin: 0 auto;
     }

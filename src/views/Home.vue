@@ -1,6 +1,6 @@
 <template>
   <div class="topnavAndBanner">
-    <Topnav/>
+    <Topnav menu-logo-visible/>
     <div class="banner">
       <h1>STARTS UI</h1>
       <h2>一个厉害的UI框架</h2>
@@ -74,17 +74,10 @@ $color: #0f9c95;
 }
 .features{
   margin: 64px auto;
-  width: 400px;
-  @media (min-width: 800px) {
-    width: 800px;
-  }
-  @media (min-width: 1200px) {
-    width: 1200px;
-  }
-  >ul {
+  > ul {
     display: flex;
     flex-wrap: wrap;
-
+    justify-content: center;
     > li {
       width: 400px;
       margin: 16px 0;
@@ -112,6 +105,15 @@ $color: #0f9c95;
         grid-area: text
       }
     }
+  }
+  @media (min-width: 800px) {
+    width: 800px;
+    > ul {
+      justify-content: left;
+    }
+  }
+  @media (min-width: 1200px) {
+    width: 1200px;
   }
 }
 </style>
