@@ -11,7 +11,7 @@ export default {
     theme: { type: String, default: "button" },
     size: { type: String, default: "normal" },
     level: { type: String, default: "normal" },
-    disable: { type: Boolean, default: false },
+    disabled: { type: Boolean, default: false },
     loading: { type: Boolean, default: false },
   },
   setup(props) {

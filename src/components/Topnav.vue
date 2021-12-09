@@ -72,7 +72,6 @@ $color: #0f9c95;
     display: none;
   }
   @media (max-width: 500px) {
-    background: #fff;
     > .logo {
       margin: 0 auto;
     }
