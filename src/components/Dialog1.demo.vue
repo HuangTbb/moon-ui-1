@@ -15,7 +15,7 @@
         <div>你好</div>
       </template>
       <template v-slot:title>
-        <strong>加粗的标题e</strong>
+        <strong>加粗的标题</strong>
       </template>
     </Dialog>
   </div>
