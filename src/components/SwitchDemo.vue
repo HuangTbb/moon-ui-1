@@ -1,8 +1,8 @@
 <template>
   <div>
     <h1>Switch 组件示例 </h1>
-    <Demo :component="Switch1Demo" title="常规用法"/>
-    <Demo :component="Switch2Demo" title="支持 disabled"/>
+    <Demo :component="Switch1Demo"/>
+    <Demo :component="Switch2Demo"/>
   </div>
 </template>
 <script lang="ts">
