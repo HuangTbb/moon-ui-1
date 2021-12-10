@@ -1,8 +1,8 @@
 <template>
   <div class="topnavAndBanner">
-    <Topnav menu-logo-visible/>
+    <Topnav menu-logo-visible />
     <div class="banner">
-      <h1>STARTS UI</h1>
+      <h1>ICECREAM UI</h1>
       <h2>一个厉害的UI框架</h2>
       <p class="actions">
         <a href="https://github.com/HuangTbb/starts-ui">GitHub</a>
@@ -23,7 +23,7 @@
         <svg>
           <use xlink:href="#icon-ts"></use>
         </svg>
-        <h3>基于 TypeScript </h3>
+        <h3>基于 TypeScript</h3>
         <p>源代码采用 TypeScript 书写（非严格检查）</p>
       </li>
       <li>
@@ -39,15 +39,19 @@
 <script lang="ts">
 import Topnav from "../components/Topnav.vue";
 export default {
-  components: {Topnav},
-}
+  components: { Topnav },
+};
 </script>
 <style lang="scss" scoped>
 $button-color: #02bcb0;
 $border-radius: 4px;
 $color: #0f9c95;
-.topnavAndBanner{
-  background: linear-gradient(145deg, rgba(227,255,253,1) 0%, rgba(183,233,230,1) 100%);
+.topnavAndBanner {
+  background: linear-gradient(
+    145deg,
+    rgba(227, 255, 253, 1) 0%,
+    rgba(183, 233, 230, 1) 100%
+  );
   clip-path: ellipse(80% 60% at 50% 40%);
   > .banner {
     padding: 100px 0;
@@ -56,23 +60,23 @@ $color: #0f9c95;
     align-items: center;
     flex-direction: column;
     color: $color;
-    > .actions{
+    > .actions {
       padding: 8px 0;
       a {
-        margin:0 8px;
+        margin: 0 8px;
         background: $button-color;
         color: #fff;
         display: inline-block;
         padding: 8px 24px;
         border-radius: $border-radius;
-        &:hover{
+        &:hover {
           text-decoration: none;
         }
       }
     }
   }
 }
-.features{
+.features {
   margin: 64px auto;
   > ul {
     display: flex;
@@ -102,7 +106,7 @@ $color: #0f9c95;
       }
 
       > p {
-        grid-area: text
+        grid-area: text;
       }
     }
   }
