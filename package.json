@@ -13,7 +13,7 @@
     "sh-gitee": "sh deploy-gitee.sh"
   },
   "resolutions": {
-    "node-sass": "npm:sass@^1.26.11"
+    "node-sass": "npm:sass@1.26.11"
   },
   "dependencies": {
     "github-markdown-css": "4.0.0",
