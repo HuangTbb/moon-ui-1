@@ -2,7 +2,7 @@
   <div class="topnav">
     <router-link to="/" class="logo">
       <svg class="icon">
-        <use xlink:href="#icon-xingxing1"></use>
+        <use xlink:href="#icon-icecream"></use>
       </svg>
     </router-link>
     <svg class="toggleAside" @click="toggleMenu"  v-if="toggleMenuVisible">
