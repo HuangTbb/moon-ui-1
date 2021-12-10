@@ -1,7 +1,7 @@
-import {md} from './plugins/md'
+import {md} from './plugins/md';
 // @ts-ignore
-import fs from 'fs'
-import {baseParse} from '@vue/compiler-core'
+import fs from 'fs';
+import {baseParse} from '@vue/compiler-core';
 export default {
   base: "./",
   assetsDir: "assets",
