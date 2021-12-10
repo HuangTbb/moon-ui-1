@@ -60,8 +60,8 @@ onMounted(() => {
   );
 });
 export const defaults = context.slots.default();
-defaults.forEach((tab) => {
-  if ((tab.type as Component).name !== Tab.name) {
+defaults.forEach((tag) => {
+  if ((tag.type as Component).name !== Tab.name) {
     throw new Error("Tabs 子标签必须是 Tab");
   }
 });

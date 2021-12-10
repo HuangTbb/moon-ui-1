@@ -14,12 +14,11 @@ export const openDialog = (options) => {
         Dialog,
         {
           visible: true,
-          "onUpdate:visible": (newVisible: Boolean) => {
+          "onUpdate:visible": (newVisible) => {
             if (newVisible === false) {
               close();
             }
           },
-          closeOnClickOverlay: false,
           ok,
           cancel,
         },

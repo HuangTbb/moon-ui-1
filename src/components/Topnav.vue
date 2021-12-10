@@ -5,26 +5,26 @@
         <use xlink:href="#icon-icecream"></use>
       </svg>
     </router-link>
-    <svg class="toggleAside" @click="toggleMenu"  v-if="toggleMenuVisible">
-      <use xlink:href="#icon-menu"></use>
-    </svg>
     <div class="menu" v-if="menuLogoVisible">
       <router-link to="/doc/intro">文档</router-link>
     </div>
+    <svg class="toggleAside" @click="toggleMenu" v-if="toggleMenuVisible">
+      <use xlink:href="#icon-menu"></use>
+    </svg>
   </div>
 </template>
 <script lang="ts">
-import {inject, Ref} from 'vue';
+import { inject, Ref } from "vue";
 export default {
-  props:{
+  props: {
     toggleMenuVisible: {
       type: Boolean,
-      default: false
+      default: false,
     },
     menuLogoVisible: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   setup() {
     const menuVisible = inject<Ref<boolean>>("menuVisible");
@@ -32,7 +32,7 @@ export default {
       menuVisible.value = !menuVisible.value;
     };
     return { toggleMenu };
-  }
+  },
 };
 </script>
 <style lang="scss" scoped>
@@ -51,7 +51,7 @@ $color: #0f9c95;
   > .logo {
     max-width: 6em;
     margin-right: auto;
-    > .icon{
+    > .icon {
       width: 1.6em;
       height: 1.6em;
     }

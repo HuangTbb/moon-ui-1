@@ -11,12 +11,12 @@ export default {
       vue: 'Vue'
     },
     name: 'Icecream',
-    file: 'dist/lib/gulu.js',
+    file: 'dist/lib/icecream.js',
     format: 'umd',
     plugins: [terser()]
   }, {
     name: 'Icecream',
-    file: 'dist/lib/gulu.esm.js',
+    file: 'dist/lib/icecream.esm.js',
     format: 'es',
     plugins: [terser()]
   }],

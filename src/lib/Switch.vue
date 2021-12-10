@@ -8,14 +8,12 @@
   </button>
 </template>
 <script lang="ts" setup="props, context">
-import { ref, SetupContext } from "vue";
+import { SetupContext } from "vue";
 declare const props: { value: boolean };
 declare const context: SetupContext;
 export default {
   props: {
-    value: {
-      type: Boolean,
-    },
+    value: Boolean,
   },
 };
 export const toggle = () => {
