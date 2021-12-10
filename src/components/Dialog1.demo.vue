@@ -7,8 +7,8 @@
     <Dialog
         v-model:visible="x"
         :closeOnClickOverlay="false"
-        :ok="f1"
-        :cancel="f2"
+        :ok="ok"
+        :cancel="cancel"
     >
       <template v-slot:content>
         <strong>hi</strong>
@@ -31,13 +31,13 @@ export default {
     const toggle = () => {
       x.value = !x.value;
     };
-    const f1 = () => {
-      console.log("f1");
+    const ok = () => {
+      console.log("ok");
     };
-    const f2 = () => {
-      console.log("f2");
+    const cancel = () => {
+      console.log("cancel");
     };
-    return { x, toggle, f1, f2 };
+    return { x, toggle, ok, cancel };
   },
 }
 </script>

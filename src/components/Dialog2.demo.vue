@@ -21,7 +21,7 @@ export default {
           console.log("ok");
         },
         cancel() {
-          console.log("cancelK");
+          console.log("cancel");
         },
       });
     };
