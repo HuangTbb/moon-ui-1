@@ -7,16 +7,19 @@
   </div>
 </template>
 <script lang="ts">
-import Button from "../lib/Button.vue"
-import { openDialog } from "../lib/openDialog";
-import {h} from 'vue';
+import { Button, openDialog } from "../lib/index";
+import { h } from "vue";
 export default {
   components: { Button },
   setup() {
     const showDialog = () => {
       openDialog({
-        title() {return h('strong', {}, '标题')},
-        content(){return  "你好"},
+        title() {
+          return h("strong", {}, "标题");
+        },
+        content() {
+          return "你好";
+        },
         ok() {
           console.log("ok");
         },
@@ -25,7 +28,7 @@ export default {
         },
       });
     };
-    return {showDialog };
+    return { showDialog };
   },
 };
 </script>

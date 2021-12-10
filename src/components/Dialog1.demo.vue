@@ -5,10 +5,10 @@
   <div>
     <Button @click="toggle">打开对话框</Button>
     <Dialog
-        v-model:visible="x"
-        :closeOnClickOverlay="false"
-        :ok="ok"
-        :cancel="cancel"
+      v-model:visible="x"
+      :closeOnClickOverlay="false"
+      :ok="ok"
+      :cancel="cancel"
     >
       <template v-slot:content>
         <strong>hi</strong>
@@ -21,11 +21,10 @@
   </div>
 </template>
 <script lang="ts">
-import Button from "../lib/Button.vue"
-import Dialog from "../lib/Dialog.vue"
-import {ref} from "vue";
+import { Button, Dialog } from "../lib/index";
+import { ref } from "vue";
 export default {
-  components: {Button, Dialog},
+  components: { Button, Dialog },
   setup() {
     const x = ref(false);
     const toggle = () => {
@@ -39,5 +38,5 @@ export default {
     };
     return { x, toggle, ok, cancel };
   },
-}
+};
 </script>
