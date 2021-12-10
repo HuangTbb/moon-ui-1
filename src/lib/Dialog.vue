@@ -45,12 +45,12 @@ export default {
       context.emit("update:visible", false);
     };
     const onClickOk = () => {
-      if (props.ok?.() !== false) {
+      if (props.ok && props.ok() !== false) {
         close();
       }
     };
     const onClickCancel = () => {
-      props.cancel?.();
+      props.cancel && props.cancel();
       close();
     };
     const onClickOverlay = () => {
