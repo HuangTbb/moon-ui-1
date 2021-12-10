@@ -8,11 +8,26 @@
 import { computed } from "vue";
 export default {
   props: {
-    theme: { type: String, default: "button" },
-    size: { type: String, default: "normal" },
-    level: { type: String, default: "normal" },
-    disabled: { type: Boolean, default: false },
-    loading: { type: Boolean, default: false },
+    theme: {
+      type: String,
+      default: "button",
+    },
+    size: {
+      type: String,
+      default: "normal",
+    },
+    level: {
+      type: String,
+      default: "normal",
+    },
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
+    loading: {
+      type: Boolean,
+      default: false,
+    },
   },
   setup(props) {
     const { theme, size, level } = props;

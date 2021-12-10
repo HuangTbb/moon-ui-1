@@ -1,5 +1,5 @@
 <template>
-  <template v-if="visible">
+  <div v-if="visible">
     <Teleport to="#app">
       <div class="gulu-dialog-overlay" @click="onClickOverlay"></div>
       <div class="gulu-dialog-wrapper">
@@ -18,10 +18,10 @@
         </div>
       </div>
     </Teleport>
-  </template>
+  </div>
 </template>
 <script lang="ts">
-import Button from "../lib/Button.vue";
+import Button from "./Button.vue";
 export default {
   props: {
     visible: {
