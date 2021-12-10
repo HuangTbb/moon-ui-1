@@ -12,8 +12,8 @@
             <slot name="content" />
           </main>
           <footer>
-            <Button @click="ok">OK</Button>
-            <Button @click="cancel">Cancel</Button>
+            <Button @click="onClickOk">OK</Button>
+            <Button @click="onClickCancel">Cancel</Button>
           </footer>
         </div>
       </div>
@@ -44,12 +44,12 @@ export default {
     const close = () => {
       context.emit("update:visible", false);
     };
-    const ok = () => {
+    const onClickOk = () => {
       if (props.ok?.() !== false) {
         close();
       }
     };
-    const cancel = () => {
+    const onClickCancel = () => {
       props.cancel?.();
       close();
     };
@@ -58,7 +58,7 @@ export default {
         close();
       }
     };
-    return { close, ok, cancel, onClickOverlay };
+    return { close, onClickOk, onClickCancel, onClickOverlay };
   },
 };
 </script>
