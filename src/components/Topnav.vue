@@ -2,7 +2,7 @@
   <div class="topnav">
     <router-link to="/" class="logo">
       <svg class="icon">
-        <use xlink:href="#icon-icecream"></use>
+        <use xlink:href="#icon-spacemacs"></use>
       </svg>
     </router-link>
     <div class="menu" v-if="menuLogoVisible">
@@ -51,16 +51,32 @@ $color: #0f9c95;
   > .logo {
     max-width: 6em;
     margin-right: auto;
+    margin-left: 20px;
     > .icon {
       width: 1.6em;
       height: 1.6em;
     }
   }
   > .menu {
-    display: flex;
     white-space: nowrap;
-    flex-wrap: nowrap;
     margin: 0 1em;
+    background: #0f1b32;
+    padding: 4px 20px;
+    border: 2px solid #004165;
+    color: #c2e1e5;
+    border-radius: 20px;
+    transition: all 250ms;
+    box-shadow: 5px 10px 10px rgba(0,0,0,0.25);
+    &:hover{
+      color: #fa0045;
+      border:2px solid #fa0045;
+    }
+    > a {
+      &:hover {
+        text-decoration: none;
+
+      }
+    }
   }
   > .toggleAside {
     width: 28px;
