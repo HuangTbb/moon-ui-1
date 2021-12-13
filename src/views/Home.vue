@@ -3,10 +3,10 @@
     <div class="topnavAndBanner">
       <Topnav menu-logo-visible />
       <div class="banner">
-        <h1>SPACEMACS UI</h1>
+        <h1>MOON UI</h1>
         <h2>一个面向学习者的 UI 框架</h2>
         <p class="actions">
-          <a href="https://github.com/HuangTbb/starts-ui">GitHub</a>
+          <a href="https://github.com/HuangTbb/moon-ui-1">GitHub</a>
           <router-link to="/doc">开始</router-link>
         </p>
       </div>
@@ -18,7 +18,7 @@
             <use xlink:href="#icon-vue"></use>
           </svg>
           <h3>基于 Vue 3</h3>
-          <p>骄傲地使用了 Vue 3 Composition API</p>
+          <p>使用了 Vue 3 Composition API</p>
         </li>
         <li>
           <svg>
@@ -46,6 +46,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 $button-background: linear-gradient(
+
         90deg,#3d7e7f  0%, #56c3bb 30%,#064968 100%
 );
 $text-color: #f3f3f0;
@@ -77,12 +78,12 @@ main {
           display: inline-block;
           padding: 8px 24px;
           border-radius: $border-radius;
-          transition: all 10s;
+          transition: all 250ms;
           &:hover {
             text-decoration: none;
-            background:linear-gradient(
-                    90deg,  #3d7e7f 0%, #56c3bb 30%,#064968 100%
-            );
+            color: #fa0045;
+            font-weight: bold;
+            padding: 8px 28px;
           }
         }
       }
@@ -111,6 +112,19 @@ main {
         padding: 20px 30px;
         color: $text-color;
         box-shadow: 10px 10px 10px rgba(0,0,0,0.25);
+        position: relative;
+        &::before{
+          content: "";
+          width: 0;
+          height: 0;
+          border-top: 25px solid transparent;
+          border-left: 25px solid #dfaa01;
+          border-bottom: 25px solid transparent;
+          position: absolute;
+          top: 50%;
+          left: -2%;
+          transform: translateY(-50%);
+        }
         > svg {
           grid-area: icon;
           width: 64px;

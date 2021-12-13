@@ -2,7 +2,7 @@
   <div class="topnav">
     <router-link to="/" class="logo">
       <svg class="icon">
-        <use xlink:href="#icon-spacemacs"></use>
+        <use xlink:href="#icon-moon"></use>
       </svg>
     </router-link>
     <div class="menu" v-if="menuLogoVisible">

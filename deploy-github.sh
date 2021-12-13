@@ -5,7 +5,7 @@ git init &&
 git add . &&
 git commit -m "update" &&
 git branch -M main &&
-git remote add origin git@github.com:HuangTbb/icecream-ui.git &&
+git remote add origin git@github.com:HuangTbb/moon-ui.git &&
 git push -f -u origin main &&
 cd -
-echo https://huangtbb.github.io/icecream-ui/index.html
+echo https://huangtbb.github.io/moon-ui/index.html

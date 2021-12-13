@@ -10,13 +10,13 @@ export default {
     globals: {
       vue: 'Vue'
     },
-    name: 'Icecream',
-    file: 'dist/lib/icecream.js',
+    name: 'Moon',
+    file: 'dist/lib/moon.js',
     format: 'umd',
     plugins: [terser()]
   }, {
     name: 'Icecream',
-    file: 'dist/lib/icecream.esm.js',
+    file: 'dist/lib/moon.esm.js',
     format: 'es',
     plugins: [terser()]
   }],

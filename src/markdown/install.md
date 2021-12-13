@@ -1,15 +1,15 @@
-# 安装
+# <font color=#e2e2e2>安装</font>
 
-打开终端运行下列命令：
-
-```
-npm install icecream-ui
-```
-
-或
+<font color=#e2e2e2>打开终端运行下列命令：</font>
 
 ```
-yarn add icecream-ui
+npm install moon-ui
 ```
 
-下一节：[开始使用](#/doc/get-started)
+<font color=#e2e2e2>或</font>
+
+```
+yarn add moon-ui
+```
+
+<font color=#e2e2e2>下一节：<mark>&nbsp;[开始使用](#/doc/get-started)&nbsp;</mark></font>
