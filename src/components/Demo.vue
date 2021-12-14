@@ -65,6 +65,9 @@ $border-color: #d9d9d9;
   &-actions {
     padding: 8px 16px;
     border-top: 1px dashed $border-color;
+    > .gulu-button{
+      margin-bottom: 0;
+    }
   }
   &-code {
     padding: 8px 16px;
@@ -73,6 +76,7 @@ $border-color: #d9d9d9;
       line-height: 1.1;
       font-family: Consolas, "Courier New", Courier, monospace;
       margin: 0;
+      background: #eeffff;
     }
   }
 }

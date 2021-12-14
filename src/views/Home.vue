@@ -46,7 +46,6 @@ export default {
 </script>
 <style lang="scss" scoped>
 $button-background: linear-gradient(
-
         90deg,#3d7e7f  0%, #56c3bb 30%,#064968 100%
 );
 $text-color: #f3f3f0;
@@ -118,7 +117,7 @@ main {
           width: 0;
           height: 0;
           border-top: 25px solid transparent;
-          border-left: 25px solid #dfaa01;
+          border-left: 25px solid #ffda44;
           border-bottom: 25px solid transparent;
           position: absolute;
           top: 50%;
@@ -133,7 +132,7 @@ main {
 
         > h3 {
           grid-area: title;
-          font-size: 28px;
+          font-size: 24px;
         }
 
         > p {

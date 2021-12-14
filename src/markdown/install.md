@@ -1,6 +1,6 @@
-# <font color=#e2e2e2>安装</font>
+## <font color=#e2e2e2>安装
 
-<font color=#e2e2e2>打开终端运行下列命令：</font>
+打开终端运行下列命令：</font>
 
 ```
 npm install moon-ui

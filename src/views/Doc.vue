@@ -46,22 +46,12 @@ export default {
   },
   setup() {
     const menuVisible = inject<Ref<boolean>>("menuVisible");
-    onMounted(()=>{
-      const topnav = document.querySelector('.topnav')
-      onUpdated(()=>{
-        const aside: HTMLElement = document.querySelector('.aside')
-        if(aside!== null){
-          console.log(aside)
-          aside.style.top = topnav.clientHeight + 'px'
-        }
-      })
-    })
     return { menuVisible };
   },
 
 };
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
 .layout {
   display: flex;
   flex-direction: column;
@@ -71,13 +61,16 @@ export default {
   }
   > .content {
     flex-grow: 1;
-    padding-top: 60px;
+    padding-top: 62px;
     padding-left: 156px;
     display: flex;
-    color:#e2e2e2;
+
     > aside {
+      @media (min-width: 500px) {
+        background: rgba(6, 73, 104,0.5);
+      }
       flex-shrink: 0;
-      background: rgba(6, 73, 104,0.8);
+      background: rgba(6, 73, 104,1);
       width: 150px;
       position: fixed;
       top: 62px;
@@ -88,6 +81,7 @@ export default {
       border-right: 2px solid #088391;
       border-radius: 12px;
       padding-top: 20px;
+      color:#e2e2e2;
       > h2 {
         margin-bottom: 4px;
         padding-left: 16px;
@@ -104,28 +98,40 @@ export default {
             }
           }
           > .router-link-active{
-            background: linear-gradient(90deg, #42807b 50%, #005076 100% );
+            background: linear-gradient(
+                    90deg,#3d7e7f  0%, #56c3bb 30%,#064968 100%
+            );
             border-top: 2px solid #088391;
             border-bottom: 2px solid #088391;
             border-top-right-radius: 8px;
             border-bottom-right-radius: 8px;
-            color: #fa0045;
+            font-weight: bold;
           }
         }
       }
-      @media (max-width: 500px) {
-        background: rgba(6, 73, 104,1);
-      }
+
     }
     > main {
       flex-grow: 1;
-      padding: 16px;
-      background: rgba(6, 73, 104,0.8);
+      padding: 20px 16px 16px;
       overflow: auto;
-      h1,h2{
-        color: #e2e2e2;
+      background: rgba(6, 73, 104,0.5);
+      border-top: 2px solid #088391;
+      border-left: 2px solid #088391;
+      border-top-left-radius: 12px;
+      border-top-right-radius: 12px;
+      > div {
+        > h2{
+          color: #e2e2e2;
+        }
+        > .demo{
+          background: #fff;
+        }
       }
 
+      @media (max-width: 500px) {
+        border-left: none;
+      }
     }
     @media (max-width: 500px) {
       padding-left: 0;
