@@ -6,7 +6,7 @@
   </div>
 </template>
 <script lang="ts">
-import Demo from "./Demo.vue";
+import Demo from "../Demo.vue";
 import Dialog1Demo from "./Dialog1.demo.vue";
 import Dialog2Demo from "./Dialog2.demo.vue";
 export default {

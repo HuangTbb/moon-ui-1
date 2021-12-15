@@ -75,7 +75,6 @@ $border-color: #d9d9d9;
     > pre {
       line-height: 1.1;
       font-family: Consolas, "Courier New", Courier, monospace;
-      margin: 0;
       background: #eeffff;
     }
   }

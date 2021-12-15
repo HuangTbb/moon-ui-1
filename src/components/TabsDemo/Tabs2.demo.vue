@@ -30,9 +30,9 @@
   </div>
 </template>
 <script lang="ts">
-import { Tab, Tabs } from "../lib/index";
+import { Tab, Tabs } from "../../lib";
 import { ref } from "vue";
-import Button from '../lib/Button.vue';
+import Button from '../../lib/Button.vue';
 export default {
   components: {Button, Tab, Tabs },
   setup() {
