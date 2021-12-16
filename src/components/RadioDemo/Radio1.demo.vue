@@ -2,7 +2,7 @@
 常规用法
 </demo>
 <template>
-  <Radio v-model:value="radioState" labels="Radio"/>
+  <Radio v-model:value="radioState" radioName="Radio"/>
 </template>
 
 <script lang="ts">
