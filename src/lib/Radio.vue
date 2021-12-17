@@ -9,7 +9,7 @@
   </div>
 </template>
 <script lang="ts" setup="props, context">
-import {onMounted, SetupContext} from 'vue';
+import {SetupContext} from 'vue';
 declare const props: {
   radioName: string,
   disabled: boolean,

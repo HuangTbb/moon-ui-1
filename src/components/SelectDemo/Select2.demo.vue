@@ -1,8 +1,12 @@
 <demo>
-常规用法
+自定义宽高
 </demo>
 <template>
-  <Select v-model:initial="defaultValue" :values="['Jack', 'Lucy', 'Jam']"/>
+  <Select
+      v-model:initial="defaultValue"
+      :values="['Jack', 'Lucy', 'Jam']"
+      width="180"
+      height="50"/>
 </template>
 <script lang="ts">
 import Select from '../../lib/Select.vue'
