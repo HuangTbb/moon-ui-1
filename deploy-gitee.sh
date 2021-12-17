@@ -7,4 +7,4 @@ git commit -m "update" &&
 git remote add origin git@gitee.com:huangtobe/moon_ui.git &&
 git push -f -u origin master &&
 cd -
-echo https://gitee.com/huangtobe/moon_ui/index.html
+echo https://huangtobe.gitee.io/moon_ui/index.html
