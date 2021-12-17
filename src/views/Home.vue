@@ -117,7 +117,7 @@ main {
           width: 0;
           height: 0;
           border-top: 25px solid transparent;
-          border-left: 25px solid #ffda44;
+          border-left: 25px solid #fa0045;
           border-bottom: 25px solid transparent;
           position: absolute;
           top: 50%;
