@@ -4,16 +4,10 @@
       <div
         class="gulu-tabs-nav-item"
         v-for="(t, index) in titles"
-        :ref="
-          (el) => {
-            if (t === selected) selectedItem = el;
-          }
-        "
+        :ref="(el) => {if (t === selected) selectedItem = el;}"
         :class="{ selected: t === selected }"
         @click="select(t)"
-        :key="index"
-      >
-        {{ t }}
+        :key="index">{{ t }}
       </div>
       <div class="gulu-tabs-nav-indicator" ref="indicator"></div>
     </div>
@@ -22,21 +16,9 @@
     </div>
   </div>
 </template>
-<script lang="ts" setup="props, context">
+<script lang="ts">
 import Tab from "./Tab.vue";
-import {
-  computed,
-  onMounted,
-  ref,
-  watchEffect,
-  SetupContext,
-  Component,
-} from "vue";
-declare const props: {
-  selected: string ,
-  position?: 'top' | 'bottom' | 'left' | 'right',
-};
-declare const context: SetupContext;
+import {computed, onMounted,ref, watchEffect} from "vue";
 export default {
   props: {
     selected: {
@@ -48,59 +30,59 @@ export default {
       default: 'top'
     }
   },
-};
-const { position } = props;
-export const classes = computed(() => {
-  return {
-    [`gulu-position-${position}`]: position
-  };
-});
-export const selectedItem = ref<HTMLDivElement>(null);
-export const indicator = ref<HTMLDivElement>(null);
-export const container = ref<HTMLDivElement>(null);
-onMounted(() => {
-  watchEffect(
-    () => {
-      const { width } = selectedItem.value.getBoundingClientRect();
-      const { height } = selectedItem.value.getBoundingClientRect();
-      const guluTabs: HTMLElement = indicator.value.parentNode.parentNode;
-      const className: string = guluTabs.className
-      if(className.indexOf('gulu-position-left') >= 0 ||
-          className.indexOf('gulu-position-right') >= 0){
-        indicator.value.style.height = height + "px";
-        indicator.value.style.height = height + "px";
-        const { bottom: bottom1 } = selectedItem.value.getBoundingClientRect();
-        const { bottom: bottom2 } = container.value.getBoundingClientRect();
-        const bottom = bottom2 - bottom1;
-        indicator.value.style.bottom = bottom + "px";
-        return;
+  setup(props, context){
+    const selectedItem = ref<HTMLDivElement>(null);
+    const indicator = ref<HTMLDivElement>(null);
+    const container = ref<HTMLDivElement>(null);
+    onMounted(() => {
+      watchEffect(() => {
+        const { width } = selectedItem.value.getBoundingClientRect();
+        const { height } = selectedItem.value.getBoundingClientRect();
+        const guluTabs: HTMLElement = indicator.value.parentNode.parentNode;
+        const className: string = guluTabs.className
+        if(className.indexOf('gulu-position-left') >= 0 ||
+            className.indexOf('gulu-position-right') >= 0){
+          indicator.value.style.height = height + "px";
+          indicator.value.style.height = height + "px";
+          const { bottom: bottom1 } = selectedItem.value.getBoundingClientRect();
+          const { bottom: bottom2 } = container.value.getBoundingClientRect();
+          const bottom = bottom2 - bottom1;
+          indicator.value.style.bottom = bottom + "px";
+          return;
+        }
+        indicator.value.style.width = width + "px";
+        const { left: left1 } = selectedItem.value.getBoundingClientRect();
+        const { left: left2 } = container.value.getBoundingClientRect();
+        const left = left1 - left2;
+        indicator.value.style.left = left + "px";
+      },
+      {
+        flush: "post",
+      });
+    });
+    const defaults = context.slots.default();
+    defaults.forEach((tag) => {
+      if ((tag.type as Component).name !== Tab.name) {
+        throw new Error("Tabs 子标签必须是 Tab");
       }
-      indicator.value.style.width = width + "px";
-      const { left: left1 } = selectedItem.value.getBoundingClientRect();
-      const { left: left2 } = container.value.getBoundingClientRect();
-      const left = left1 - left2;
-      indicator.value.style.left = left + "px";
-    },
-
-    {
-      flush: "post",
-    }
-  );
-});
-export const defaults = context.slots.default();
-defaults.forEach((tag) => {
-  if ((tag.type as Component).name !== Tab.name) {
-    throw new Error("Tabs 子标签必须是 Tab");
+    });
+    const current = computed(() => {
+      return defaults.find((tag) => tag.props.title === props.selected);
+    });
+    const titles = defaults.map((tag) => {
+      return tag.props.title;
+    });
+    const select = (title: string) => {
+      context.emit("update:selected", title);
+    };
+    const { position } = props;
+    const classes = computed(() => {
+      return {
+        [`gulu-position-${position}`]: position
+      };
+    });
+    return {selectedItem, indicator, container,current, titles, select, classes}
   }
-});
-export const current = computed(() => {
-  return defaults.find((tag) => tag.props.title === props.selected);
-});
-export const titles = defaults.map((tag) => {
-  return tag.props.title;
-});
-export const select = (title: string) => {
-  context.emit("update:selected", title);
 };
 </script>
 <style lang="scss">
@@ -167,7 +149,7 @@ $border-color: #d9d9d9;
     }
     &-indicator {
       width: 1.5px;
-      left: 100% - 1;
+      left: 100% - 2;
     }
   }
   .gulu-tabs-content {

@@ -20,25 +20,17 @@
     </Teleport>
   </div>
 </template>
-<script lang="ts" setup="props, context">
-import { SetupContext } from "vue";
+<script lang="ts">
 import Button from "./Button.vue";
-declare const props: {
-  visible: boolean;
-  closeOnClickOverlay: boolean;
-  ok: () => boolean;
-  cancel: () => void;
-};
-declare const context: SetupContext;
 export default {
   props: {
     visible: {
       type: Boolean,
-      default: false,
+      default: false
     },
     closeOnClickOverlay: {
       type: Boolean,
-      default: true,
+      default: true
     },
     ok: {
       type: Function,
@@ -48,22 +40,25 @@ export default {
     },
   },
   components: { Button },
-};
-export const close = () => {
-  context.emit("update:visible", false);
-};
-export const onClickOk = () => {
-  if (props.ok && props.ok() !== false) {
-    close();
-  }
-};
-export const onClickCancel = () => {
-  props.cancel && props.cancel();
-  close();
-};
-export const onClickOverlay = () => {
-  if (props.closeOnClickOverlay) {
-    close();
+  setup(props,context){
+    const close = () => {
+      context.emit("update:visible", false);
+    };
+    const onClickOk = () => {
+      if (props.ok && props.ok() !== false) {
+        close();
+      }
+    };
+    const onClickCancel = () => {
+      props.cancel && props.cancel();
+      close();
+    };
+    const onClickOverlay = () => {
+      if (props.closeOnClickOverlay) {
+        close();
+      }
+    };
+    return {close, onClickOverlay, onClickOk, onClickCancel}
   }
 };
 </script>

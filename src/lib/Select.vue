@@ -1,6 +1,6 @@
 <template>
   <div class="gulu-select-wrapper"
-       @click="()=>{active = true; listVisible = !listVisible; rotate = !rotate}"
+       @click="changeStyle"
        :style="'width:'+ width + 'px; line-height:'+ height+ 'px'">
     <div class="gulu-select" :class="{'active': active}" ref="guluSelect">
       <div>{{ initial }}</div>
@@ -13,31 +13,30 @@
     </ul>
   </div>
 </template>
-<script lang="ts" setup="props, context">
+<script lang="ts">
 import {ref} from 'vue';
-import {SetupContext} from 'vue';
-declare const props: {
-  values: Array<string>,
-  initial: string,
-  width?: string,
-  height?: string
-};
-declare const context: SetupContext;
 export default {
   props: {
     values: Array,
     initial: String,
     width: String,
-    height: String
+    height: String,
   },
+  setup(props, context){
+    const active = ref(false)
+    const listVisible = ref(false)
+    const rotate = ref(false)
+    const changeDefaultValue = (item) =>{
+      context.emit("update:initial", item)
+    }
+    const changeStyle = ()=>{
+      active.value = true;
+      listVisible.value = !listVisible.value;
+      rotate.value = !rotate.value
+    }
+    return {active, listVisible, rotate, changeDefaultValue, changeStyle}
+  }
 };
-
-export const active = ref(false)
-export const listVisible = ref(false)
-export const rotate = ref(false)
-export const changeDefaultValue = (item) =>{
-  context.emit("update:initial", item)
-}
 </script>
 <style lang="scss" scoped>
 .gulu-select-wrapper{

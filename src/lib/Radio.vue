@@ -1,5 +1,8 @@
 <template>
-  <div class="gulu-radio-wrapper" :class="{ 'disabled': disabled}" :transverse="transverse" :style="transverse?  'display: inline-block; margin-right: 10px;': ''">
+  <div class="gulu-radio-wrapper"
+       :class="{ 'disabled': disabled}"
+       :transverse="transverse"
+       :style="transverse?  'display: inline-block; margin-right: 10px;': ''">
     <div class="gulu-radio">
       <div :disabled="disabled">
         <input type="radio" @click="selectedRadio" class="gulu-radio-input" :name="inputGroup"/>
@@ -8,15 +11,7 @@
     </div>
   </div>
 </template>
-<script lang="ts" setup="props, context">
-import {SetupContext} from 'vue';
-declare const props: {
-  radioName: string,
-  disabled: boolean,
-  inputGroup?: string
-  transverse: boolean
-};
-declare const context: SetupContext;
+<script lang="ts">
 export default {
   props: {
     radioName: String,
@@ -24,26 +19,28 @@ export default {
     inputGroup: String,
     transverse: Boolean
   },
+  setup(){
+    const selectedRadio= (e)=>{
+      const radioInputs = document.querySelectorAll('.gulu-radio-input');
+      const selectedName = e.path[0].name
+      const group = []
+      radioInputs.forEach((item: HTMLInputElement) =>{
+        if(item.name){
+          group.push(item)
+        }else{
+          e.path[1].className = 'gulu-selected'
+        }
+      })
+      group.forEach((item: HTMLInputElement) => {
+        if(item.name ===  selectedName){
+          (item.parentNode as HTMLDivElement).className = ''
+          e.path[1].className = 'gulu-selected'
+        }
+      })
+    }
+    return { selectedRadio }
+  }
 };
-
-export const selectedRadio= (e)=>{
-  const radioInputs = document.querySelectorAll('.gulu-radio-input');
-  const selectedName = e.path[0].name
-  const group = []
-    radioInputs.forEach((item: HTMLInputElement) =>{
-      if(item.name){
-        group.push(item)
-      }else{
-        e.path[1].className = 'gulu-selected'
-      }
-    })
-    group.forEach((item: HTMLInputElement, index) => {
-      if(item.name ===  selectedName){
-        (item.parentNode as HTMLDivElement).className = ''
-        e.path[1].className = 'gulu-selected'
-      }
-    })
-}
 </script>
 <style lang="scss" scoped>
 .gulu-radio-wrapper{
