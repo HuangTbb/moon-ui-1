@@ -46,18 +46,19 @@ export default {
 </script>
 <style lang="scss" scoped>
 $button-background: linear-gradient(
-        90deg,#3d7e7f  0%, #56c3bb 30%,#064968 100%
+  90deg,
+  #3d7e7f 0%,
+  #56c3bb 30%,
+  #064968 100%
 );
 $text-color: #f3f3f0;
 $border-radius: 20px;
 $border-top: 3px solid #559283;
-$li-background: linear-gradient(
-        90deg,#006693  0%, #298c9d 40%, #3c7a79 100%
-);
-$box-shadow: 5px 10px 10px rgba(0,0,0,0.25);
+$li-background: linear-gradient(90deg, #006693 0%, #298c9d 40%, #3c7a79 100%);
+$box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.25);
 $color: #ffda44;
 main {
-.topnavAndBanner {
+  .topnavAndBanner {
     > .banner {
       padding: 100px 0 50px;
       display: flex;
@@ -66,11 +67,11 @@ main {
       flex-direction: column;
       color: $color;
       > .actions {
-        padding:30px 0 10px;
+        padding: 30px 0 10px;
 
         a {
           box-shadow: $box-shadow;
-          border-top: $border-top ;
+          border-top: $border-top;
           margin: 0 20px;
           background: $button-background;
           color: $text-color;
@@ -105,19 +106,19 @@ main {
           "icon text";
         grid-template-columns: 80px auto;
         grid-template-rows: 1fr auto;
-        border:2px solid #16b5ba;
+        border: 2px solid #16b5ba;
         border-radius: 10px;
         background: $li-background;
         padding: 20px 30px;
         color: $text-color;
-        box-shadow: 10px 10px 10px rgba(0,0,0,0.25);
+        box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.25);
         position: relative;
-        &::before{
+        &::before {
           content: "";
           width: 0;
           height: 0;
           border-top: 25px solid transparent;
-          border-left: 25px solid #fa0045;
+          border-left: 25px solid #ffda44;
           border-bottom: 25px solid transparent;
           position: absolute;
           top: 50%;

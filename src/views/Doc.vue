@@ -1,6 +1,6 @@
 <template>
   <div class="layout">
-    <Topnav class="nav" toggle-menu-visible/>
+    <Topnav class="nav" toggle-menu-visible />
     <div class="content">
       <aside v-if="menuVisible" class="aside">
         <h2>文档</h2>
@@ -18,22 +18,22 @@
         <h2>组件列表</h2>
         <ol>
           <li>
-            <router-link to="/doc/button">Button 组件</router-link>
+            <router-link to="/doc/button">Button</router-link>
           </li>
           <li>
-            <router-link to="/doc/switch">Switch 组件</router-link>
+            <router-link to="/doc/switch">Switch</router-link>
           </li>
           <li>
-            <router-link to="/doc/dialog">Dialog 组件</router-link>
+            <router-link to="/doc/dialog">Dialog</router-link>
           </li>
           <li>
-            <router-link to="/doc/tabs">Tabs 组件</router-link>
+            <router-link to="/doc/tabs">Tabs</router-link>
           </li>
           <li>
-            <router-link to="/doc/radio">Radio 组件</router-link>
+            <router-link to="/doc/radio">Radio</router-link>
           </li>
           <li>
-            <router-link to="/doc/select">Select 组件</router-link>
+            <router-link to="/doc/select">Select</router-link>
           </li>
         </ol>
       </aside>
@@ -45,7 +45,7 @@
 </template>
 <script lang="ts">
 import Topnav from "../components/Topnav.vue";
-import {inject, onMounted, onUpdated, Ref} from 'vue';
+import { inject, onMounted, onUpdated, Ref } from "vue";
 export default {
   components: {
     Topnav,
@@ -54,7 +54,6 @@ export default {
     const menuVisible = inject<Ref<boolean>>("menuVisible");
     return { menuVisible };
   },
-
 };
 </script>
 <style lang="scss">
@@ -73,10 +72,10 @@ export default {
 
     > aside {
       @media (min-width: 500px) {
-        background: rgba(6, 73, 104,0.5);
+        background: rgba(6, 73, 104, 0.5);
       }
       flex-shrink: 0;
-      background: rgba(6, 73, 104,1);
+      background: rgba(6, 73, 104, 1);
       width: 150px;
       position: fixed;
       top: 62px;
@@ -87,7 +86,7 @@ export default {
       border-right: 2px solid #088391;
       border-radius: 12px;
       padding-top: 20px;
-      color:#e2e2e2;
+      color: #e2e2e2;
       > h2 {
         margin-bottom: 4px;
         padding-left: 16px;
@@ -96,16 +95,19 @@ export default {
         margin-bottom: 6px;
         > li {
           padding: 4px 0;
-          > a{
+          > a {
             padding: 4px 16px;
             display: block;
-            &:hover{
+            &:hover {
               text-decoration: none;
             }
           }
-          > .router-link-active{
+          > .router-link-active {
             background: linear-gradient(
-                    90deg,#3d7e7f  0%, #56c3bb 30%,#064968 100%
+              90deg,
+              #3d7e7f 0%,
+              #56c3bb 30%,
+              #064968 100%
             );
             border-top: 2px solid #088391;
             border-bottom: 2px solid #088391;
@@ -115,22 +117,21 @@ export default {
           }
         }
       }
-
     }
     > main {
       flex-grow: 1;
       padding: 20px 16px 16px;
       overflow: auto;
-      background: rgba(6, 73, 104,0.5);
+      background: rgba(6, 73, 104, 0.5);
       border-top: 2px solid #088391;
       border-left: 2px solid #088391;
       border-top-left-radius: 12px;
       border-top-right-radius: 12px;
       > div {
-        > h2{
+        > h2 {
           color: #e2e2e2;
         }
-        > .demo{
+        > .demo {
           background: #fff;
         }
       }

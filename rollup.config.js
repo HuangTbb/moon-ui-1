@@ -15,7 +15,7 @@ export default {
     format: 'umd',
     plugins: [terser()]
   }, {
-    name: 'Icecream',
+    name: 'Moon',
     file: 'dist/lib/moon.esm.js',
     format: 'es',
     plugins: [terser()]
