@@ -65,7 +65,7 @@ $border-color: #d9d9d9;
   &-actions {
     padding: 8px 16px;
     border-top: 1px dashed $border-color;
-    > .gulu-button{
+    > .gulu-button {
       margin-bottom: 0;
     }
   }
